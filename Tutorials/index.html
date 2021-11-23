@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <style>
+        .box{
+            background-color: grey;
+            height: 200px;
+            width: 200px;
+        }
+
+        v-cloak{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Vue js link-->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <div id="app" v-cloak>
+        {{greeting}}
+
+
+        <!-- 2 way data binding-->
+        <input v-model="greeting"/>
+
+        <hr>
+
+        <!-- similar to if setment in javascript-->
+        <div v-if= "isVisible" class="box"></div>
+
+        <hr>
+
+        <!-- works as a regular if else-->
+        <div v-else-if= "isVisible" class="box"></div>
+
+        <hr>
+
+
+        <div v-else= "isVisible" class="box"></div>
+
+        <hr>
+
+        <!-- used when toggling something requently-->
+        <div v-show= "isVisible" class="box"></div>
+
+
+
+    </div>
+
+
+    
+    
+    <script>
+        let app = Vue.createApp({
+            data: function(){
+                return{
+                    greeting: "Hello Vue",
+                    isVisible: true
+                }
+            }
+        })
+        app.mount("#app")
+    </script>
+</body>
+</html>
